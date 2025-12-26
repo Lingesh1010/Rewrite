@@ -1,0 +1,20 @@
+RewriteEngine On
+
+RewriteRule ^/mtp/api/adapters/CustomSessionAdapter/saveCustomInformation$ \
+https://10.189.177.25:9443/mtp/api/adapters/CustomSessionAdapter/saveCustomInformation \
+[P,L]
+
+
+
+
+SSLProxyEngine On
+SSLProxyCheckPeerName Off
+SSLProxyCheckPeerCN Off
+SSLProxyCheckPeerExpire Off
+
+
+
+option 2
+
+
+<Uri Name="/mtp/api/adapters/CustomSessionAdapter/saveCustomInformation"/>
