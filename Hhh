@@ -1,34 +1,14 @@
-RewriteEngine On
-
-RewriteRule ^/mtp/api/adapters/CustomSessionAdapter/saveCustomInformation$ \
-https://10.189.177.25:9443/mtp/api/adapters/CustomSessionAdapter/saveCustomInformation \
-[P,L]
-
-
-
-
-SSLProxyEngine On
-SSLProxyCheckPeerName Off
-SSLProxyCheckPeerCN Off
-SSLProxyCheckPeerExpire Off
-
-
-
-option 2
-
-
-<Uri Name="/mtp/api/adapters/CustomSessionAdapter/saveCustomInformation"/>
-==============
-
-
-Hi Lingesh , 
-
-Please add rewrite rule to redirect traffic from Mobile Webserver ( 10.189.195.5 : SIT Instance ) to Microservice SIT Instance 
-
-
-Web-Server URL : yono-app-sit.sbiuat.bank.in/mfp/api/adapters/CustomSessionAdapter/saveCustomInformation
-
-Target end point : 10.189.177.25:9443/app-integrity/v1/apic/save-custom-information
-
-
-Please enable 9443 port on SIT Microservice WAS as well as FAR is enable from 9443 only for Webserver and WAS. 
+[Fri Dec 26 15:51:22 2025] [error] [client 10.189.177.25:9443] SSL0266E: Handshake Failed, Could not establish SSL proxy connection.
+[Fri Dec 26 15:51:22 2025] [warn] [client 10.189.177.25:9443] [110b48bb0] [7340502] SSL0234W: SSL Handshake Failed, The certificate sent by the peer has expired or is invalid. [proxy/10.189.195.5:54310 -> 10.189.177.25:9443] [15:51:22.00
+0975463] 0ms
+[Fri Dec 26 15:51:22 2025] [warn] [client 10.189.177.25:9443] [110b48bb0] [7340502] Certificate validation error during handshake, last PKIX/RFC3280 certificate validation error was GSKVAL_ERROR_NO_CHAIN_BUILT [10.189.177.25:9443 -> 10.1
+89.195.5:54310] [15:51:22.000975477]
+[Fri Dec 26 15:51:22 2025] [warn] [client 10.189.177.25:9443] [110b48bb0] Subject [[Class=]GSKVALMethod::X509[Issuer=]CN=digiporsitdb02,OU=Root Certificate,OU=digiporsitdb02Cell01,OU=digiporsitdb02CellManager01,O=IBM,C=US[#=]00fd53747ea7
+6322[Subject=]CN=digiporsitdb02,OU=digiporsitdb02Node01Cell,OU=digiporsitdb02Node01,O=IBM,C=US[Class=]GSKVALMethod::PKIX[Issuer=]CN=digiporsitdb02,OU=Root Certificate,OU=digiporsitdb02Cell01,OU=digiporsitdb02CellManager01,O=IBM,C=US[#=]0
+0fd53747ea76322[Subject=]CN=digiporsitdb02,OU=digiporsitdb02Node01Cell,OU=digiporsitdb02Node01,O=IBM,C=US] failed proxy certificate validation
+[Fri Dec 26 15:51:22 2025] [warn] [client 10.189.177.25:9443] [110b48bb0] X509 Certificate validation log: [[Class=]GSKVALMethod::X509[Time=]2025:12:26:15:51:22.973[buildChain=][Error=]GSKVAL_ERR_NO_CHAIN_BUILT[Info=]CN=digiporsitdb02,OU
+=Root Certificate,OU=digiporsitdb02Cell01,OU=digiporsitdb02CellManager01,O=IBM,C=US[Cert=][Issuer=]CN=digiporsitdb02,OU=Root Certificate,OU=digiporsitdb02Cell01,OU=digiporsitdb02CellManager01,O=IBM,C=US[#=]00fd53747ea76322[Subject=]CN=di
+giporsitdb02,OU=digiporsitdb02Node01Cell,OU=digiporsitdb02Node01,O=IBM,C=US[=Cert][=buildChain]\r\n[Class=]GSKVALMethod::PKIX[Time=]2025:12:26:15:51:22.974[buildChain=][Error=]GSKVAL_ERR_NO_CHAIN_BUILT[Info=]CN=digiporsitdb02,OU=Root Cer
+tificate,OU=digiporsitdb02Cell01,OU=digiporsitdb02CellManager01,O=IBM,C=US[Cert=][Issuer=]CN=digiporsitdb02,OU=Root Certificate,OU=digiporsitdb02Cell01,OU=digiporsitdb02CellManager01,O=IBM,C=US[#=]00fd53747ea76322[Subject=]CN=digiporsitd
+b02,OU=digiporsitdb02Node01Cell,OU=digiporsitdb02Node01,O=IBM,C=US[=Cert][=buildChain]\r\n]
+~
