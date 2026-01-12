@@ -1,0 +1,23 @@
+Hi Lingesh , 
+Please add rewrite rule to redirect traffic from Mobile Webserver ( 10.189.195.5 : SIT Instance ) to Microservice SIT Instance 
+
+Web-Server URL : yono-app-sit.sbiuat.bank.in/mfp/api/adapters/CustomSessionAdapter/saveCustomInformation
+Target end point : 10.189.177.25:9443/app-integrity/v1/apic/save-custom-information
+
+Please enable 9443 port on SIT Microservice WAS as well as FAR is enable from 9443 only for Webserver and WAS. 
+
+ANS
+----
+SSLProxyEngine On
+
+RewriteEngine On
+RewriteRule ^/mfp/api/adapters/CustomSessionAdapter/saveCustomInformation$ http://10.189.177.25:9443/app-integrity/v1/apic/save-custom-information [P,L]
+
+In was console 
+WC_defaulthost	9443
+
+In Plugin file
+27c27
+<          <Transport Hostname="digiporsitdb02" Port="9443" Protocol="https">
+---
+>          <Transport Hostname="digiporsitdb02" Port="9443" Protocol="http">
